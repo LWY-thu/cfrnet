@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "cfr_net_train.py", line 421, in main
+    run(outdir)
+  File "cfr_net_train.py", line 277, in run
+    CFR = cfr.cfr_net(x, t, y_, p, FLAGS, r_alpha, r_lambda, do_in, do_out, dims)
+  File "/home/wyliu/code/cfrnet/cfr/cfr_net.py", line 25, in __init__
+    self._build_graph(x, t, y_ , p_t, FLAGS, r_alpha, r_lambda, do_in, do_out, dims)
+  File "/home/wyliu/code/cfrnet/cfr/cfr_net.py", line 186, in _build_graph
+    imb_dist, imb_mat = wasserstein(h_rep_norm,t,p_ipm,lam=FLAGS.wass_lambda,its=FLAGS.wass_iterations,sq=False,backpropT=FLAGS.wass_bpt)
+  File "/home/wyliu/code/cfrnet/cfr/util.py", line 194, in wasserstein
+    col = tf.concat(0,[delta*tf.ones(tf.shape(M[:,0:1])),tf.zeros((1,1))])
+  File "/home/wyliu/yes/envs/tf-torch/lib/python3.6/site-packages/tensorflow_core/python/util/dispatch.py", line 180, in wrapper
+    return target(*args, **kwargs)
+  File "/home/wyliu/yes/envs/tf-torch/lib/python3.6/site-packages/tensorflow_core/python/ops/array_ops.py", line 1418, in concat
+    dtype=dtypes.int32).get_shape().assert_has_rank(0)
+  File "/home/wyliu/yes/envs/tf-torch/lib/python3.6/site-packages/tensorflow_core/python/framework/tensor_shape.py", line 995, in assert_has_rank
+    raise ValueError("Shape %s must have rank %d" % (self, rank))
+ValueError: Shape (2, 1, 1) must have rank 0

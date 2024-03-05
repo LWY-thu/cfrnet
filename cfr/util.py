@@ -25,11 +25,14 @@ def log(logfile,str):
     """ Log a string in a file """
     with open(logfile,'a') as f:
         f.write(str+'\n')
-    print str
+    print(str) 
 
 def save_config(fname):
     """ Save configuration """
-    flagdict =  FLAGS.__dict__['__flags']
+    # flagdict =  FLAGS.__dict__['__flags']
+    flagdict =  {}
+    for k in FLAGS:
+        flagdict[k] = FLAGS[k].value
     s = '\n'.join(['%s: %s' % (k,str(flagdict[k])) for k in sorted(flagdict.keys())])
     f = open(fname,'w')
     f.write(s)
